@@ -1,0 +1,34 @@
+body
+{
+    background-color: lavender;
+}
+
+#content ul 
+{
+    background-color: aliceblue;
+    margin-bottom: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#salesH
+{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 15px;
+    border-color: black;
+    border-style: solid;
+    border-width: 10px;
+
+}
+
+#description
+{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 30px;
+}
+
