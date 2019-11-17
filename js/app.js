@@ -245,3 +245,31 @@ function infoLima(){
   ulList.appendChild(total);
 }
 infoLima();
+
+////////////END OF FUNCTIONS////////////
+
+/////Creation of table
+var tables = document.createElement('table');
+var tableLocation = document.getElementById('content');
+tableLocation.appendChild(tables);
+///Function to add time header to columns
+for( var headingCounter = 6 ; headingCounter < 20; headingCounter++){
+  var heading = document.createElement('th');
+  heading.textContent = headingCounter + 'AM';
+  if(headingCounter === 12)
+  {
+    heading.textContent = headingCounter + 'PM';
+  }
+  if (headingCounter > 12)
+  {
+    heading.textContent = (headingCounter - 12) + 'PM';
+  }
+  heading.width = '70px';
+  tables.appendChild(heading);
+}
+
+////Adding the rows to the table
+var rowHeading = document.createElement('tr');
+rowHeading.textContent = 'First Row';
+rowHeading.width = '30px';
+tables.appendChild(rowHeading);
