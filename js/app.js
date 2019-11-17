@@ -1,5 +1,5 @@
 'use strict';
-
+var summation = 0;
 //Creating object literals
 
 ///Creating object 1
@@ -93,7 +93,7 @@ function infoSeattle(){
     var liHOURSALE = document.createElement('li');
     value = Seattle.randomCust(Seattle.minCust, Seattle.maxCust);
     liHOURSALE.textContent = i + ' AM: ' + value + ' Cookies';
-    total.textContent += value;
+    summation = summation + value;
     ulList.appendChild(liHOURSALE);
   }
   for (var y = 1; y < 8; y++ )
@@ -102,12 +102,14 @@ function infoSeattle(){
     value = Seattle.randomCust(Seattle.minCust, Seattle.maxCust);
     liHOURSALE.textContent = y + ' PM: ' + value + ' Cookies' ;
     ulList.appendChild(liHOURSALE);
-    total.textContent += value;
+    summation = summation + value;
   }
-
+  total.textContent = summation; 
   ulList.appendChild(total);
+ 
 }
 
+  
 infoSeattle();
 
 ///Adding name of Tokyo
@@ -125,20 +127,23 @@ function infoTokyo(){
   
   for (var i = 6; i < 13; i++ )
   {
+    
     var liHOURSALE = document.createElement('li');
     value = Tokyo.randomCust(Tokyo.minCust, Tokyo.maxCust);
     liHOURSALE.textContent = i + ' AM: ' + value + ' Cookies';
-    total.textContent += value;
+    summation = summation + value;
     ulList.appendChild(liHOURSALE);
   }
+  
   for (var y = 1; y < 8; y++ )
   {
     liHOURSALE = document.createElement('li');
     value = Tokyo.randomCust(Tokyo.minCust, Tokyo.maxCust);
     liHOURSALE.textContent = y + ' PM: ' + value + ' Cookies' ;
+    summation = summation + value;
     ulList.appendChild(liHOURSALE);
-    total.textContent += value;
   }
+  total.textContent = summation;
   
   ulList.appendChild(total);
 }
@@ -252,9 +257,17 @@ infoLima();
 var tables = document.createElement('table');
 var tableLocation = document.getElementById('content');
 tableLocation.appendChild(tables);
+var heading = document.createElement('th');
+heading.textContent = '  ';
+tables.appendChild(heading);
+////Up till here, we created the table and added an empty column 
+///to shift everything one cell to the right
+
+
+
 ///Function to add time header to columns
 for( var headingCounter = 6 ; headingCounter < 20; headingCounter++){
-  var heading = document.createElement('th');
+  heading = document.createElement('th');
   heading.textContent = headingCounter + 'AM';
   if(headingCounter === 12)
   {
@@ -273,3 +286,4 @@ var rowHeading = document.createElement('tr');
 rowHeading.textContent = 'First Row';
 rowHeading.width = '30px';
 tables.appendChild(rowHeading);
+
