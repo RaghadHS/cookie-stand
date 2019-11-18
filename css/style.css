@@ -32,3 +32,20 @@ body
     margin-left: 30px;
 }
 
+table{
+    border: 1px solid black;
+    border-style: solid;
+    border-spacing: 20px;
+    text-align: left;
+
+}
+
+tr{
+    padding: 20px;
+    margin-bottom: 20px;
+
+}
+td
+{
+    text-align: left;
+}
