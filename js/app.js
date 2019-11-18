@@ -1,5 +1,70 @@
 'use strict';
 var summation = 0;
+
+///////CONSTRUCTOR///////////
+function Store (location, minCust, maxCust, avgSalePC, arrayShop)
+{
+
+  this.location = location;
+  this.minCust = minCust;
+  this.maxCust = maxCust;
+  this.avgSalePC = avgSalePC;
+  this.arrayShop = arrayShop;
+
+}
+
+/////////END OF CONSTRUCTOR////////////////
+Store.prototype.info = function()
+{
+
+  var value = 0;
+
+  for (var i = 6; i < 13; i++ )
+  {
+    //var liHOURSALE = document.createElement('li');
+    value = this.randomCust(this.minCust, this.maxCust);
+    this.arrayShop[i - 6] = value; 
+    summation = summation + value;
+    
+  }
+  for ( i = 13; i < 21; i++ )
+  {
+
+    value = this.randomCust(this.minCust, this.maxCust);
+    this.arrayShop[i - 6] = value;
+    summation = summation + value;
+  }
+
+  if( i === 21)
+  {
+    this.arrayShop[i - 6] = summation;
+  }
+};
+
+Store.prototype.addArrToTable = function (location, arrayShop) {
+
+  var newRow = document.createElement('tr');
+  tables.appendChild(newRow);
+  var cityName = document.createElement('td');
+  cityName.textContent = location;
+  newRow.appendChild(cityName);
+  for ( var c = 0; c < 15; c++)
+  {
+  
+    var columnForShop = document.createElement('td');
+    columnForShop.textContent = arrayShop[c];
+    newRow.appendChild(columnForShop);
+  
+  }
+  // columnForShop = document.createElement('td');
+  // columnForShop.textContent
+};
+
+
+
+
+
+
 //Creating object literals
 
 ///Creating object 1
@@ -243,7 +308,7 @@ for( var headingCounter = 6 ; headingCounter < 21; headingCounter++){
   {
     heading.textContent = (headingCounter - 12) + 'PM';
   }
-//// CONTINUE HERE
+  //// CONTINUE HERE
   if (headingCounter === 21)
   {
     heading.textContent = 'DAILY TOTAL';
