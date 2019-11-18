@@ -14,6 +14,12 @@ function Store (location, minCust, maxCust, avgSalePC, arrayShop)
 }
 
 /////////END OF CONSTRUCTOR////////////////
+Store.prototype.randomCust = function(minCust, maxCust)
+{
+
+  return Math.ceil(Math.random() * ((maxCust - minCust) + 1)) + minCust;
+};
+
 Store.prototype.info = function()
 {
 
@@ -68,213 +74,22 @@ Store.prototype.addArrToTable = function (location, arrayShop) {
 //Creating object literals
 
 ///Creating object 1
-var seattle = {
-
-  location: 'Seattle',
-  minCust: 23,
-  maxCust: 65,
-  avgSalePC:6.3,
-  arrayShop: [],
-  randomCust : function( minCust, maxCust){
-
-    return Math.ceil(Math.random() * ((maxCust - minCust) + 1)) + minCust;
-  },
-  info : function()
-  {
-    var value = 0;
-
-    for (var i = 6; i < 13; i++ )
-    {
-      //var liHOURSALE = document.createElement('li');
-      value = this.randomCust(this.minCust, this.maxCust);
-      this.arrayShop[i - 6] = value; 
-      summation = summation + value;
-    
-    }
-    for ( i = 13; i < 21; i++ )
-    {
-
-      value = this.randomCust(this.minCust, this.maxCust);
-      this.arrayShop[i - 6] = value;
-      summation = summation + value;
-    }
-
-    if( i === 21)
-    {
-      this.arrayShop[i - 6] = summation;
-    }
-  },
-};
-
+var contentArr = [];
+var seattle = new Store('Seattle', 23 , 65 , 6.3, contentArr);
 ///Creating object 2
-var tokyo = {
-
-  location: 'Tokyo',
-  minCust: 3,
-  maxCust: 24,
-  avgSalePC: 1.2,
-  arrayShop: [],
-
-  randomCust : function( minCust, maxCust){
-
-    return Math.ceil(Math.random() * ((maxCust - minCust) + 1)) + minCust;
-  },
-  info : function()
-  {
-    var value = 0;
-
-    for (var i = 6; i < 13; i++ )
-    {
-      //var liHOURSALE = document.createElement('li');
-      value = this.randomCust(this.minCust, this.maxCust);
-      this.arrayShop[i - 6] = value; 
-      summation = summation + value;
-    
-    }
-    for ( i = 13; i < 21; i++ )
-    {
-
-      value = this.randomCust(this.minCust, this.maxCust);
-      this.arrayShop[i - 6] = value;
-      summation = summation + value;
-    }
-
-    if (i === 21 )
-    {
-      this.arrayShop[i - 6] = summation;
-    }
-
-  },
-};
-
-
-
-
-// ///Creating object 3
-var dubai = {
-
-  location: 'Dubai',
-  minCust: 11,
-  maxCust: 38,
-  avgSalePC: 3.7,
-  arrayShop: [],
-
-  randomCust : function( minCust, maxCust){
-
-    return Math.ceil(Math.random() * ((maxCust - minCust) + 1)) + minCust;
-  },
-  info : function()
-  {
-    var value = 0;
-
-    for (var i = 6; i < 13; i++ )
-    {
-      //var liHOURSALE = document.createElement('li');
-      value = this.randomCust(this.minCust, this.maxCust);
-      this.arrayShop[i - 6] = value; 
-      summation = summation + value;
-    
-    }
-    for ( i = 13; i < 21; i++ )
-    {
-
-      value = this.randomCust(this.minCust, this.maxCust);
-      this.arrayShop[i - 6] = value;
-      summation = summation + value;
-    }
-
-    if (i === 21)
-    {
-      this.arrayShop[i - 6] = summation;
-       
-    }
-
-  },
-};
-
-
+var contentArr2 = [];
+var tokyo = new Store('Tokyo', 3 , 24 , 1.2, contentArr2);
+///Creating object 3
+var contentArr3 = [];
+var dubai = new Store('Dubai', 11, 38, 3.7, contentArr3);
 ///Creating object 4
-var paris = {
-
-  location: 'Paris',
-  minCust: 20,
-  maxCust: 38,
-  avgSalePC: 2.3,
-  arrayShop: [],
-
-  randomCust : function( minCust, maxCust){
-
-    return Math.ceil(Math.random() * ((maxCust - minCust) + 1)) + minCust;
-  },
-  info : function()
-  {
-    var value = 0;
-
-    for (var i = 6; i < 13; i++ )
-    {
-      //var liHOURSALE = document.createElement('li');
-      value = this.randomCust(this.minCust, this.maxCust);
-      this.arrayShop[i - 6] = value; 
-      summation = summation + value;
-    
-    }
-    for ( i = 13; i < 21; i++ )
-    {
-
-      value = this.randomCust(this.minCust, this.maxCust);
-      this.arrayShop[i - 6] = value;
-      summation = summation + value;
-    }
-
-    if (i === 21)
-    {
-      this.arrayShop[i - 6] = summation;
-    }
-  },
-};
-
+var contentArr4 = [];
+var paris = new Store('Paris', 20, 38, 2.3, contentArr4);
 ///Creating object 5
-var lima = {
+var contentArr5 = [];
+var lima = new Store('Lima', 2, 16, 4.6, contentArr5);
 
-  location: 'Lima',
-  minCust: 2,
-  maxCust: 16,
-  avgSalePC: 4.6,
-  arrayShop: [],
-
-  randomCust : function( minCust, maxCust){
-
-    return Math.ceil(Math.random() * ((maxCust - minCust) + 1)) + minCust;
-  },
-
-  info : function()
-  {
-    var value = 0;
-
-    for (var i = 6; i < 13; i++ )
-    {
-      //var liHOURSALE = document.createElement('li');
-      value = this.randomCust(this.minCust, this.maxCust);
-      this.arrayShop[i - 6] = value; 
-      summation = summation + value;
-    
-    }
-    for ( i = 13; i < 21; i++ )
-    {
-
-      value = this.randomCust(this.minCust, this.maxCust);
-      this.arrayShop[i - 6] = value;
-      summation = summation + value;
-    }
-
-    if ( i === 21)
-    {
-      this.arrayShop[i - 6] = summation;
-    }
-  },
-
-};
-
+  
 seattle.info();
 tokyo.info();
 dubai.info();
@@ -299,6 +114,10 @@ tables.appendChild(heading);
 for( var headingCounter = 6 ; headingCounter < 21; headingCounter++){
 
   heading = document.createElement('th');
+  if (headingCounter === 21)
+  {
+    heading.textContent = 'DAILY TOTAL';
+  }
   heading.textContent = headingCounter + 'AM';
   if(headingCounter === 12)
   {
@@ -309,10 +128,10 @@ for( var headingCounter = 6 ; headingCounter < 21; headingCounter++){
     heading.textContent = (headingCounter - 12) + 'PM';
   }
   //// CONTINUE HERE
-  if (headingCounter === 21)
-  {
-    heading.textContent = 'DAILY TOTAL';
-  }
+  // if (headingCounter === 21)
+  // {
+  //   heading.textContent = 'DAILY TOTAL';
+  // }
   heading.width = '70px';
   tables.appendChild(heading);
 }
