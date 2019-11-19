@@ -1,21 +1,21 @@
 'use strict';
 var summation = 0;
 var hold = [ ];
-var arrayShop1 = [];
+//var arrayShop1 = [];
 var tables = document.createElement('table');
 var form = document.getElementById('forms');
 /////Starting from 6, the DAILY TOTAL is number 20
 //////Starting from 0, the DAILY TOTAL is number 13
 
 ///////CONSTRUCTOR///////////
-function Store (location, minCust, maxCust, avgSalePC, arrayShop)
+function Store (location, minCust, maxCust, avgSalePC)
 {
 
   this.location = location;
   this.minCust = minCust;
   this.maxCust = maxCust;
   this.avgSalePC = avgSalePC;
-  this.arrayShop = arrayShop;
+  this.arrayShop = [];
 
   this.randomCust(this.minCust, this.maxCust);
   hold = this.info();
@@ -33,28 +33,33 @@ Store.prototype.randomCust = function(minCust, maxCust)
 Store.prototype.info = function()
 {
 
-  var value = 0;
+  
 
+  var summation1 = 0;
   for (var i = 6; i < 13; i++ )
   {
-    //var liHOURSALE = document.createElement('li');
+    var value = 0;
     value = this.randomCust(this.minCust, this.maxCust);
     this.arrayShop[i - 6] = value; 
-    summation = summation + value;
+    summation1 += parseInt(value);
   }
+  var summation2 = 0;
   for ( i = 13; i < 20; i++ )
   {
+    value = 0;
     value = this.randomCust(this.minCust, this.maxCust);
     this.arrayShop[i - 6] = value;
-    summation = summation + value;
-    
-    
+    summation2 += parseInt(value); 
+
   }
 
+
   if( i === 20)
-  {
+  { 
+    summation = summation1 + summation2;
     this.arrayShop[14] = summation;
   }
+ 
   return this.arrayShop;
   
 };
@@ -125,25 +130,20 @@ function createTable(){
 createTable();
 
 ///Creating object 1
-var contentArr = [];
-var seattle = new Store('Seattle', 23 , 65 , 6.3, contentArr);
+var seattle = new Store('Seattle', 23 , 65 , 6.3);
 
 
 ///Creating object 2
-var contentArr2 = [];
-var tokyo = new Store('Tokyo', 3 , 24 , 1.2, contentArr2);
+var tokyo = new Store('Tokyo', 3 , 24 , 1.2);
 
 ///Creating object 3
-var contentArr3 = [];
-var dubai = new Store('Dubai', 11, 38, 3.7, contentArr3);
+var dubai = new Store('Dubai', 11, 38, 3.7);
 
 ///Creating object 4
-var contentArr4 = [];
-var paris = new Store('Paris', 20, 38, 2.3, contentArr4);
+var paris = new Store('Paris', 20, 38, 2.3);
 
 ///Creating object 5
-var contentArr5 = [];
-var lima = new Store('Lima', 2, 16, 4.6, contentArr5);
+var lima = new Store('Lima', 2, 16, 4.6);
 
 //////////Function to get data from form
 
@@ -156,5 +156,5 @@ form.addEventListener('submit', function(event) {
   var maxcust = event.target.maxc.value;
   var avgcust = event.target.avgc.value;
 
-  var StoreS = new Store (storename, mincust, maxcust, avgcust, arrayShop1);}
+  var StoreS = new Store (storename, mincust, maxcust, avgcust);}
 );
