@@ -3,6 +3,7 @@ var summation = 0;
 var hold = [ ];
 var arrayShop1 = [];
 var tables = document.createElement('table');
+var form = document.getElementById('forms');
 /////Starting from 6, the DAILY TOTAL is number 20
 //////Starting from 0, the DAILY TOTAL is number 13
 
@@ -146,23 +147,14 @@ var lima = new Store('Lima', 2, 16, 4.6, contentArr5);
 
 //////////Function to get data from form
 
+form.addEventListener('submit', function(event) {
 
+  event.preventDefault();
+  //var storename = event.target.uname;
+  var storename = document.getElementById('uname').value;
+  var mincust = event.target.minc.value;
+  var maxcust = event.target.maxc.value;
+  var avgcust = event.target.avgc.value;
 
-/////////////////////////////////PROBLEM: THE DATA THAT IS INPUT IS INCORRECT
-////////////////////////////////MAKE SURE TO GET THE CORRECT DATA 
-
-function getData(){
-
-  /////Take user information
-  var storename = document.getElementById('username').value;
-  var mincust = document.getElementById('mincust').value;
-  var maxcust = document.getElementById('maxcust').value;
-  var avgcust = document.getElementById ('avgcust').value;
-
-  ///// Call the constructor
-  var newStore = new Store(storename, mincust, maxcust, avgcust, arrayShop1);
-}
-
-//////Event listener for Button on Form
-var buttons = document.getElementById('buttons');
-buttons.addEventListener('click', getData());
+  var StoreS = new Store (storename, mincust, maxcust, avgcust, arrayShop1);}
+);
