@@ -2,6 +2,9 @@
 var summation = 0;
 var hold = [ ];
 var tables = document.createElement('table');
+/////Starting from 6, the DAILY TOTAL is number 20
+//////Starting from 0, the DAILY TOTAL is number 13
+
 ///////CONSTRUCTOR///////////
 function Store (location, minCust, maxCust, avgSalePC, arrayShop)
 {
@@ -18,7 +21,6 @@ function Store (location, minCust, maxCust, avgSalePC, arrayShop)
   this.addArrToTable(this.location, this.arrayShop);
 }
 
-alert(hold);
 /////////END OF CONSTRUCTOR////////////////
 Store.prototype.randomCust = function(minCust, maxCust)
 {
@@ -38,19 +40,19 @@ Store.prototype.info = function()
     this.arrayShop[i - 6] = value; 
     summation = summation + value;
   }
-  for ( i = 13; i < 21; i++ )
+  for ( i = 13; i < 20; i++ )
   {
-
     value = this.randomCust(this.minCust, this.maxCust);
     this.arrayShop[i - 6] = value;
     summation = summation + value;
+    
+    
   }
 
-  if( i === 21)
+  if( i === 20)
   {
-    this.arrayShop[i - 6] = summation;
+    this.arrayShop[14] = summation;
   }
-
   return this.arrayShop;
   
 };
@@ -62,21 +64,21 @@ Store.prototype.addArrToTable = function (location, arrayShop) {
   var cityName = document.createElement('td');
   cityName.textContent = location;
   newRow.appendChild(cityName);
-  for ( var c = 0; c < 14; c++)
+  for ( var c = 0; c < 15; c++)
   {
     var columnForShop = document.createElement('td');
     columnForShop.textContent = arrayShop[c];
     newRow.appendChild(columnForShop);
   }
   columnForShop = document.createElement('td');
-  ///columnForShop.textContent
+
 };
 
 /////Creation of table
 function createTable(){
-  // var tables = document.createElement('table');
+
   var tableLocation = document.getElementById('content');
-  // tableLocation.appendChild(tables);
+
   
   var heading = document.createElement('th');
   heading.textContent = '  ';
@@ -87,10 +89,6 @@ function createTable(){
   for( var headingCounter = 6 ; headingCounter < 21; headingCounter++){
 
     heading = document.createElement('th');
-    if (headingCounter === 21)
-    {
-      heading.textContent = 'DAILY TOTAL';
-    }
     heading.textContent = headingCounter + 'AM';
     if(headingCounter === 12)
     {
@@ -100,11 +98,14 @@ function createTable(){
     {
       heading.textContent = (headingCounter - 12) + 'PM';
     }
-    //// CONTINUE HERE
-    // if (headingCounter === 21)
-    // {
-    //   heading.textContent = 'DAILY TOTAL';
-    // }
+  
+
+
+    if (headingCounter === 20)
+    {
+      heading.textContent = 'DAILY TOTAL';
+    }
+
     heading.width = '70px';
     tables.appendChild(heading);
   }
@@ -141,24 +142,3 @@ var paris = new Store('Paris', 20, 38, 2.3, contentArr4);
 ///Creating object 5
 var contentArr5 = [];
 var lima = new Store('Lima', 2, 16, 4.6, contentArr5);
-
-  
-// seattle.info();
-// tokyo.info();
-// dubai.info();
-// paris.info();
-// lima.info();
-
-
-
-////Function to add arrayValue in table
-
-////////////////OLD PLACE OF ADDTOSTORE FUNCTION///////////////////
-//////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////
-
-//addArrToTable(seattle.location, seattle.arrayShop);
-// addArrToTable(tokyo.location, tokyo.arrayShop);
-// addArrToTable(dubai.location, dubai.arrayShop);
-// addArrToTable(paris.location, paris.arrayShop);
-// addArrToTable(lima.location, lima.arrayShop);
