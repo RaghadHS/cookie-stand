@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Sales Data </title>
+    <title>Sales Data</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -15,9 +15,32 @@
         
     </p>
   <main id="content">
-
     
   </main>
+  <div>
+      
+        <form action="js/app.js" method="GET" id="forms">
+
+            <p id="formHeading">Please add the information of your store: </p>
+            <p> Store Location:
+                <input type="text"  id="username" size="15" maxlength="30"/>
+            </p>
+            <p>Minimum Daily Customers:
+                <input type="text" id="mincust" size="15" maxlength="30">
+            </p>
+            <p>Maximum Daily Customers:
+                <input type="text" id="maxcust" size="15" maxlength="30">
+            </p>
+            <p>Average number of cookies sold:
+                <input type="text" id="avgcust" size="15" maxlength="30">
+            </p>
+            <p>
+                <input type="button" value="Submit" size="15" maxlength="25" id="buttons">
+            </p>
+
+        </form>
+
+    </div>
 
     <script src="js/app.js"></script>
 </body>

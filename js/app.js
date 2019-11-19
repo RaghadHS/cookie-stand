@@ -1,6 +1,7 @@
 'use strict';
 var summation = 0;
 var hold = [ ];
+var arrayShop1 = [];
 var tables = document.createElement('table');
 /////Starting from 6, the DAILY TOTAL is number 20
 //////Starting from 0, the DAILY TOTAL is number 13
@@ -142,3 +143,26 @@ var paris = new Store('Paris', 20, 38, 2.3, contentArr4);
 ///Creating object 5
 var contentArr5 = [];
 var lima = new Store('Lima', 2, 16, 4.6, contentArr5);
+
+//////////Function to get data from form
+
+
+
+/////////////////////////////////PROBLEM: THE DATA THAT IS INPUT IS INCORRECT
+////////////////////////////////MAKE SURE TO GET THE CORRECT DATA 
+
+function getData(){
+
+  /////Take user information
+  var storename = document.getElementById('username').value;
+  var mincust = document.getElementById('mincust').value;
+  var maxcust = document.getElementById('maxcust').value;
+  var avgcust = document.getElementById ('avgcust').value;
+
+  ///// Call the constructor
+  var newStore = new Store(storename, mincust, maxcust, avgcust, arrayShop1);
+}
+
+//////Event listener for Button on Form
+var buttons = document.getElementById('buttons');
+buttons.addEventListener('click', getData());
